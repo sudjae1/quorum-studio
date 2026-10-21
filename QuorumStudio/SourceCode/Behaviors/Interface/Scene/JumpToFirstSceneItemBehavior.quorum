@@ -5,16 +5,14 @@ use Libraries.Interface.Events.BehaviorEvent
 use Libraries.Development.Environment.Studio.QuorumStudio
 use Libraries.Interface.Controls.Scenes.SceneTree
 use Libraries.Interface.Controls.Scenes.SceneTreeItem
-use Libraries.Interface.Controls.Scenes.SceneEditor
 use Libraries.Interface.Controls.TreeItem
 use Libraries.Containers.Iterator
 
 /*
     JumpToFirstSceneItemBehavior moves the selection and focus to the first
     item in the current scene (the first scene object found in the Scene
-    Tree, skipping layer and camera entries) when the Scene Editor has focus.
-    This is the first step toward a larger feature that will let users cycle
-    between scene items.
+    Tree, skipping layer and camera entries). This is the first step toward
+    a larger feature that will let users cycle between scene items.
 */
 class JumpToFirstSceneItemBehavior is QuorumStudioBehavior
 
@@ -22,11 +20,6 @@ class JumpToFirstSceneItemBehavior is QuorumStudioBehavior
         QuorumStudio studio = GetMainApplication()
         SceneTree tree = studio:GetSceneTree()
         if tree = undefined
-            return now
-        end
-
-        SceneEditor controller = tree:GetSceneEditor()
-        if controller = undefined or not controller:IsFocused()
             return now
         end
 
