@@ -317,6 +317,8 @@ class Behaviors
     constant text CURSOR_DECREASE_SIZE_BEHAVIOR = "Cursor Decrease Size"
     constant text SELECT_SCENE_ITEM_BEHAVIOR = "Select Scene Item"
     constant text SELECTION_HIGHLIGHT_DRAG_BEHAVIOR = "Selection Highlight Drag"
+    constant text JUMP_TO_FIRST_SCENE_ITEM_BEHAVIOR = "Jump To First Scene Item"
+    JumpToFirstSceneItemBehavior jumpToFirstSceneItemBehavior
 
     on create
         behaviors:Add(DEFAULT_MENU_OPEN, defaultMenuOpenBehavior)
@@ -465,6 +467,7 @@ class Behaviors
         behaviors:Add(SCALE_INTERFACE_DOWN, interfaceScaleDown)
         behaviors:Add(SUMMARIZE_CONTROL, summarizeControlBehavior)
         behaviors:Add(WHERE_AM_I_BEHAVIOR, whereAmIBehavior)
+        behaviors:Add(JUMP_TO_FIRST_SCENE_ITEM_BEHAVIOR, jumpToFirstSceneItemBehavior)
 
         //Text Editor Behaviors
         behaviors:Add(TEXT_EDITOR_CODE_COMPLETION, codeCompletionBehavior)
@@ -801,6 +804,10 @@ class Behaviors
 
     action GetWhereAmIBehavior returns WhereAmIBehavior
         return whereAmIBehavior
+    end
+
+    action GetJumpToFirstSceneItemBehavior returns JumpToFirstSceneItemBehavior
+        return jumpToFirstSceneItemBehavior
     end
 
     action GetCodeCompletionBehavior returns QuorumStudioBehavior

@@ -614,6 +614,10 @@ class KeyMapLoader is KeyMap
         return actualKeyMap:GetSelectionHighlightDragKey()
     end
 
+    action GetJumpToFirstSceneItemKey returns InputSet
+        return actualKeyMap:GetJumpToFirstSceneItemKey()
+    end
+
     action Save(File file)
         actualKeyMap:Save(file)
     end

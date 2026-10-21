@@ -632,4 +632,8 @@ class RemapKeyMap is KeyMap
     action GetSelectionHighlightDragKey returns InputSet
         return GetInputSetCopy(parent:KeyMap:SELECTION_HIGHLIGHT_DRAG_KEY)
     end
+
+    action GetJumpToFirstSceneItemKey returns InputSet
+        return GetInputSetCopy(parent:KeyMap:JUMP_TO_FIRST_SCENE_ITEM_KEY)
+    end
 end

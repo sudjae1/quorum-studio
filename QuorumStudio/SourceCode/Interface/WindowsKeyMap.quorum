@@ -989,4 +989,12 @@ class WindowsKeyMap is KeyMap
         set:SetInputTrigger(set:CONTINUE)
         return set
     end
+
+    action GetJumpToFirstSceneItemKey returns InputSet
+        InputSet set
+        set:SetKeyboardInput(keys:E)
+        set:AddModifier(set:SHIFT)
+        set:AddModifier(set:CONTROL)
+        return set
+    end
 end

@@ -364,6 +364,13 @@ class Menu is MenuBar, SelectionListener
         nextStatus:SetMnemonic("t")
         navigateItems:Add(nextStatus)
 
+        MenuItem jumpToFirstSceneItem
+        jumpToFirstSceneItem:SetName("Jump to First Scene Item")
+        jumpToFirstSceneItem:SetShortcut(keyMap:GetJumpToFirstSceneItemKey())
+        jumpToFirstSceneItem:SetBehavior(behaviors:GetJumpToFirstSceneItemBehavior())
+        jumpToFirstSceneItem:SetMnemonic("j")
+        navigateItems:Add(jumpToFirstSceneItem)
+
         navigateMenu:SetName("Navigate")
         navigateMenu:Add(navigateItems)
     end

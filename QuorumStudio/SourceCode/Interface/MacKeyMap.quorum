@@ -989,4 +989,12 @@ class MacKeyMap is KeyMap
         set:SetInputTrigger(set:CONTINUE)
         return set
     end
+
+    action GetJumpToFirstSceneItemKey returns InputSet
+        InputSet set
+        set:SetKeyboardInput(keys:E)
+        set:AddModifier(set:SHIFT)
+        set:AddModifier(set:META)
+        return set
+    end
 end
