@@ -148,6 +148,9 @@ class Toolbar is ToolBar
         AddButtonToToolbar(61537, const:TOOLBAR_STEP_ICON_COLOR, behaviors:GetThreadedStepOverBehavior(), "Step Over", "Runs the current line, without going into actions it calls.", keymap:GetStepOverKey():GetDisplayName())
         AddButtonToToolbar(61769, const:TOOLBAR_STEP_ICON_COLOR, behaviors:GetThreadedStepIntoBehavior(), "Step Into", "Runs the current line, going into an action it calls.", keymap:GetStepIntoKey():GetDisplayName())
         AddButtonToToolbar(61768, const:TOOLBAR_STEP_ICON_COLOR, behaviors:GetThreadedStepOutBehavior(), "Step Out", "Runs to the end of the current action.", keymap:GetStepOutKey():GetDisplayName())
+        AddSeparator()
+        // Game camera preview
+        AddButtonToToolbar(61488, const:TOOLBAR_EDIT_ICON_COLOR, behaviors:GetToggleGamePreviewBehavior(), "Game Camera Preview", "Shows or hides the preview of what the game camera sees.", keymap:GetToggleGamePreviewKey():GetDisplayName())
         SetupButtonFocus()
         SetupTooltips()
     end

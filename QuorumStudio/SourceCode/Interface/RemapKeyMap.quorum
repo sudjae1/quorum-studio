@@ -337,6 +337,22 @@ class RemapKeyMap is KeyMap
         return GetInputSetCopy(parent:KeyMap:SCALE_INTERFACE_UP_KEY)
     end
 
+    action GetToggleGamePreviewKey returns InputSet
+        return GetInputSetCopy(parent:KeyMap:TOGGLE_GAME_PREVIEW_KEY)
+    end
+
+    action GetMoveGamePreviewKey returns InputSet
+        return GetInputSetCopy(parent:KeyMap:MOVE_GAME_PREVIEW_KEY)
+    end
+
+    action GetNextCameraPerspectiveKey returns InputSet
+        return GetInputSetCopy(parent:KeyMap:NEXT_CAMERA_PERSPECTIVE_KEY)
+    end
+
+    action GetSetGameCameraKey returns InputSet
+        return GetInputSetCopy(parent:KeyMap:SET_GAME_CAMERA_KEY)
+    end
+
     action GetScaleInterfaceDownKey returns InputSet
         return GetInputSetCopy(parent:KeyMap:SCALE_INTERFACE_DOWN_KEY)
     end

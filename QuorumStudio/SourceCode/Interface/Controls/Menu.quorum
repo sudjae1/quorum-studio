@@ -353,6 +353,59 @@ class Menu is MenuBar, SelectionListener
         zoomOut:SetMnemonic("o")
         viewItems:Add(zoomOut)
 
+        MenuItem gamePreview
+        gamePreview:SetName("Game Camera Preview")
+        gamePreview:SetShortcut(keyMap:GetToggleGamePreviewKey())
+        gamePreview:SetBehavior(behaviors:GetToggleGamePreviewBehavior())
+        gamePreview:SetMnemonic("g")
+        viewItems:Add(gamePreview)
+
+        MenuItem moveGamePreview
+        moveGamePreview:SetName("Move Game Camera Preview")
+        moveGamePreview:SetShortcut(keyMap:GetMoveGamePreviewKey())
+        moveGamePreview:SetBehavior(behaviors:GetMoveGamePreviewBehavior())
+        moveGamePreview:SetMnemonic("m")
+        viewItems:Add(moveGamePreview)
+
+        MenuItem setGameCamera
+        setGameCamera:SetName("Set Game Camera to Current View")
+        setGameCamera:SetShortcut(keyMap:GetSetGameCameraKey())
+        setGameCamera:SetBehavior(behaviors:GetSetGameCameraBehavior())
+        setGameCamera:SetMnemonic("c")
+        viewItems:Add(setGameCamera)
+
+        // A submenu for the editor camera's perspectives in 3D scenes.
+        MenuItem perspectiveMenu
+        perspectiveMenu:SetName("Camera Perspective")
+        perspectiveMenu:SetMnemonic("p")
+
+        MenuItem nextPerspective
+        nextPerspective:SetName("Next Perspective")
+        nextPerspective:SetShortcut(keyMap:GetNextCameraPerspectiveKey())
+        nextPerspective:SetBehavior(behaviors:GetNextCameraPerspectiveBehavior())
+        nextPerspective:SetMnemonic("n")
+        perspectiveMenu:Add(nextPerspective)
+
+        MenuItem originPerspective
+        originPerspective:SetName("Origin")
+        originPerspective:SetBehavior(behaviors:GetOriginCameraPerspectiveBehavior())
+        originPerspective:SetMnemonic("o")
+        perspectiveMenu:Add(originPerspective)
+
+        MenuItem horizonPerspective
+        horizonPerspective:SetName("Horizon")
+        horizonPerspective:SetBehavior(behaviors:GetHorizonCameraPerspectiveBehavior())
+        horizonPerspective:SetMnemonic("h")
+        perspectiveMenu:Add(horizonPerspective)
+
+        MenuItem topDownPerspective
+        topDownPerspective:SetName("Top-down")
+        topDownPerspective:SetBehavior(behaviors:GetTopDownCameraPerspectiveBehavior())
+        topDownPerspective:SetMnemonic("t")
+        perspectiveMenu:Add(topDownPerspective)
+
+        viewItems:Add(perspectiveMenu)
+
         viewMenu:SetName("View")
         viewMenu:Add(viewItems)
     end

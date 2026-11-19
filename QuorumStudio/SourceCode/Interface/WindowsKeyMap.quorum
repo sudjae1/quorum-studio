@@ -440,6 +440,38 @@ class WindowsKeyMap is KeyMap
         return set
     end
 
+    action GetToggleGamePreviewKey returns InputSet
+        InputSet set
+        set:SetKeyboardInput(keys:V)
+        set:AddModifier(set:CONTROL)
+        set:AddModifier(set:SHIFT)
+        return set
+    end
+
+    action GetMoveGamePreviewKey returns InputSet
+        InputSet set
+        set:SetKeyboardInput(keys:V)
+        set:AddModifier(set:CONTROL)
+        set:AddModifier(set:ALT)
+        return set
+    end
+
+    action GetNextCameraPerspectiveKey returns InputSet
+        InputSet set
+        set:SetKeyboardInput(keys:C)
+        set:AddModifier(set:CONTROL)
+        set:AddModifier(set:ALT)
+        return set
+    end
+
+    action GetSetGameCameraKey returns InputSet
+        InputSet set
+        set:SetKeyboardInput(keys:M)
+        set:AddModifier(set:CONTROL)
+        set:AddModifier(set:SHIFT)
+        return set
+    end
+
     action GetScaleInterfaceDownKey returns InputSet
         InputSet set
         set:SetKeyboardInput(keys:MINUS)

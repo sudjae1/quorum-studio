@@ -153,10 +153,24 @@ class Behaviors
     constant text SCALE_INTERFACE_DOWN = "Scale Interface Down"
     constant text SUMMARIZE_CONTROL = "Summarize Control"
     constant text WHERE_AM_I_BEHAVIOR = "Where Am I Behavior"
+    constant text TOGGLE_GAME_PREVIEW = "Toggle Game Camera Preview"
+    constant text MOVE_GAME_PREVIEW = "Move Game Camera Preview"
+    constant text NEXT_CAMERA_PERSPECTIVE = "Next Camera Perspective"
+    constant text ORIGIN_CAMERA_PERSPECTIVE = "Origin Camera Perspective"
+    constant text HORIZON_CAMERA_PERSPECTIVE = "Horizon Camera Perspective"
+    constant text TOP_DOWN_CAMERA_PERSPECTIVE = "Top-down Camera Perspective"
+    constant text SET_GAME_CAMERA = "Set Game Camera To Current View"
     ScaleInterfaceBehavior interfaceScaleUp
     ScaleInterfaceBehavior interfaceScaleDown
     SummarizeControlBehavior summarizeControlBehavior
     WhereAmIBehavior whereAmIBehavior
+    ToggleGamePreviewBehavior toggleGamePreviewBehavior
+    MoveGamePreviewBehavior moveGamePreviewBehavior
+    CameraPerspectiveBehavior nextPerspectiveBehavior
+    CameraPerspectiveBehavior originPerspectiveBehavior
+    CameraPerspectiveBehavior horizonPerspectiveBehavior
+    CameraPerspectiveBehavior topDownPerspectiveBehavior
+    SetGameCameraBehavior setGameCameraBehavior
 
     //Text Editor
     constant text TEXT_EDITOR_CODE_COMPLETION = "Text Editor Code Completion"
@@ -481,6 +495,18 @@ class Behaviors
         behaviors:Add(SCALE_INTERFACE_DOWN, interfaceScaleDown)
         behaviors:Add(SUMMARIZE_CONTROL, summarizeControlBehavior)
         behaviors:Add(WHERE_AM_I_BEHAVIOR, whereAmIBehavior)
+        behaviors:Add(TOGGLE_GAME_PREVIEW, toggleGamePreviewBehavior)
+        behaviors:Add(MOVE_GAME_PREVIEW, moveGamePreviewBehavior)
+
+        // These numbers match the perspective constants in the standard library's SceneEditor.
+        originPerspectiveBehavior:SetPerspective(0)
+        horizonPerspectiveBehavior:SetPerspective(1)
+        topDownPerspectiveBehavior:SetPerspective(2)
+        behaviors:Add(NEXT_CAMERA_PERSPECTIVE, nextPerspectiveBehavior)
+        behaviors:Add(ORIGIN_CAMERA_PERSPECTIVE, originPerspectiveBehavior)
+        behaviors:Add(HORIZON_CAMERA_PERSPECTIVE, horizonPerspectiveBehavior)
+        behaviors:Add(TOP_DOWN_CAMERA_PERSPECTIVE, topDownPerspectiveBehavior)
+        behaviors:Add(SET_GAME_CAMERA, setGameCameraBehavior)
 
         //Text Editor Behaviors
         behaviors:Add(TEXT_EDITOR_CODE_COMPLETION, codeCompletionBehavior)
@@ -821,6 +847,34 @@ class Behaviors
 
     action GetSummarizeControlBehavior returns SummarizeControlBehavior
         return summarizeControlBehavior
+    end
+
+    action GetToggleGamePreviewBehavior returns ToggleGamePreviewBehavior
+        return toggleGamePreviewBehavior
+    end
+
+    action GetNextCameraPerspectiveBehavior returns CameraPerspectiveBehavior
+        return nextPerspectiveBehavior
+    end
+
+    action GetOriginCameraPerspectiveBehavior returns CameraPerspectiveBehavior
+        return originPerspectiveBehavior
+    end
+
+    action GetHorizonCameraPerspectiveBehavior returns CameraPerspectiveBehavior
+        return horizonPerspectiveBehavior
+    end
+
+    action GetTopDownCameraPerspectiveBehavior returns CameraPerspectiveBehavior
+        return topDownPerspectiveBehavior
+    end
+
+    action GetMoveGamePreviewBehavior returns MoveGamePreviewBehavior
+        return moveGamePreviewBehavior
+    end
+
+    action GetSetGameCameraBehavior returns SetGameCameraBehavior
+        return setGameCameraBehavior
     end
 
     action GetWhereAmIBehavior returns WhereAmIBehavior

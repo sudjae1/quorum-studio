@@ -1,0 +1,37 @@
+package Libraries.Development.Environment.Studio.Behaviors
+
+use Libraries.Interface.Events.BehaviorEvent
+use Libraries.Development.Environment.Studio.CodeEditorTabPane
+use Libraries.Interface.Selections.TabPaneSelection
+use Libraries.Development.Environment.Studio.QuorumStudio
+use Libraries.Development.Environment.Studio.Interface.VisualEditorTab
+
+/*
+    This behavior changes the editor camera's perspective in the 3D scene editor, from the View menu.
+    It either moves to one perspective, set with SetPerspective, or to the next one if no perspective
+    is set. It does nothing unless the selected tab is a scene. The scene editor also has its own key
+    for the next perspective, which works while it has focus.
+*/
+class CameraPerspectiveBehavior is QuorumStudioBehavior
+    // The perspective to move to, using the SceneEditor constants, or -1 for the next one.
+    integer perspective = -1
+
+    action SetPerspective(integer value)
+        perspective = value
+    end
+
+    action Run(BehaviorEvent event)
+        QuorumStudio studio = GetMainApplication()
+        CodeEditorTabPane pane = studio:GetTabPane()
+        TabPaneSelection selection = pane:GetSelection()
+
+        if selection:GetTab() is VisualEditorTab
+            VisualEditorTab tab = cast(VisualEditorTab, selection:GetTab())
+            if perspective < 0
+                tab:GetSceneEditor():NextCameraPerspective()
+            else
+                tab:GetSceneEditor():SetCameraPerspective(perspective)
+            end
+        end
+    end
+end

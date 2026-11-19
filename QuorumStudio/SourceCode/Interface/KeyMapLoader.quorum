@@ -288,6 +288,22 @@ class KeyMapLoader is KeyMap
         return actualKeyMap:GetScaleInterfaceUpKey()
     end
 
+    action GetToggleGamePreviewKey returns InputSet
+        return actualKeyMap:GetToggleGamePreviewKey()
+    end
+
+    action GetMoveGamePreviewKey returns InputSet
+        return actualKeyMap:GetMoveGamePreviewKey()
+    end
+
+    action GetNextCameraPerspectiveKey returns InputSet
+        return actualKeyMap:GetNextCameraPerspectiveKey()
+    end
+
+    action GetSetGameCameraKey returns InputSet
+        return actualKeyMap:GetSetGameCameraKey()
+    end
+
     action GetScaleInterfaceDownKey returns InputSet
         return actualKeyMap:GetScaleInterfaceDownKey()
     end

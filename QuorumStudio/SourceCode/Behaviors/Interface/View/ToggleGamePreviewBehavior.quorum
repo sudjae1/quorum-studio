@@ -1,0 +1,25 @@
+package Libraries.Development.Environment.Studio.Behaviors
+
+use Libraries.Interface.Events.BehaviorEvent
+use Libraries.Development.Environment.Studio.CodeEditorTabPane
+use Libraries.Interface.Selections.TabPaneSelection
+use Libraries.Development.Environment.Studio.QuorumStudio
+use Libraries.Development.Environment.Studio.Interface.VisualEditorTab
+
+/*
+    This behavior shows or hides the game camera preview in the 3D scene editor, from the View menu or the toolbar. It does
+    nothing unless the selected tab is a scene. The scene editor also has its own key for this, which
+    works while it has focus.
+*/
+class ToggleGamePreviewBehavior is QuorumStudioBehavior
+    action Run(BehaviorEvent event)
+        QuorumStudio studio = GetMainApplication()
+        CodeEditorTabPane pane = studio:GetTabPane()
+        TabPaneSelection selection = pane:GetSelection()
+
+        if selection:GetTab() is VisualEditorTab
+            VisualEditorTab tab = cast(VisualEditorTab, selection:GetTab())
+            tab:GetSceneEditor():ToggleGamePreview()
+        end
+    end
+end

@@ -1,7 +1,5 @@
 {
     "AndroidAssets" : "/media",
-    "AppIcon" : "",
-    "AppName" : "",
     "DevelopmentEnvironmentVersion" : "Quorum Studio 3.6.0",
     "ExecutableName" : "QuorumStudio",
     "IOSAssets" : "/media",
